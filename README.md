@@ -6,4 +6,4 @@
 Список RUSSIA - список РФ сайтов по домену. В конфиге РУ сайты так же определяются по IP.
 Список NORU - выделенные домены под отдельный прокси, можно закомментировать.
 
-Ссылка для добавления файла конфигурации - <https://raw.githubusercontent.com/RomanAverin/shadowrocket-config/main/rules_for_ru_bypass.conf>
+Ссылка для добавления файла конфигурации - <https://cdn.jsdelivr.net/gh/RomanAverin/shadowrocket-config@main/rules_for_ru_bypass.conf>
