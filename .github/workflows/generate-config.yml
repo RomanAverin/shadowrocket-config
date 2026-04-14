@@ -5,9 +5,9 @@ on:
     branches:
       - main
     paths:
-      - '*.list'
-      - 'config/conf.template'
-      - 'scripts/generate_conf.py'
+      - "*.list"
+      - "config/conf.template"
+      - "scripts/generate_conf.py"
   workflow_dispatch:
 
 env:
@@ -26,7 +26,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Validate list files and generate config
         run: python scripts/generate_conf.py
@@ -43,7 +43,7 @@ jobs:
         run: |
           aws s3 cp rules_for_ru_bypass.conf ${{ env.S3_BUCKET }}/rules_for_ru_bypass.conf \
             --endpoint-url ${{ env.S3_ENDPOINT }} --region ${{ env.S3_REGION }}
-          for f in REJECT.list DIRECT.list NORU.list RUSSIA.list GOOGLE.list Apple.list; do
+          for f in REJECT.list DIRECT.list RUSSIA.list GOOGLE.list Apple.list; do
             aws s3 cp "$f" "${{ env.S3_BUCKET }}/$f" \
               --endpoint-url ${{ env.S3_ENDPOINT }} --region ${{ env.S3_REGION }}
           done
