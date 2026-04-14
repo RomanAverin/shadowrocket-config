@@ -7,4 +7,4 @@
 Список NORU - выделенные домены под отдельный прокси, можно закомментировать.
 Спикок DIRECT - что нужно принудительно отправлять минуя прокси
 
-Ссылка для добавления файла конфигурации - <https://cdn.jsdelivr.net/gh/RomanAverin/shadowrocket-config@main/rules_for_ru_bypass.conf>
+Ссылка для добавления файла конфигурации - <https://storage.yandexcloud.net/shadowrocket/rules_for_ru_bypass.conf>
