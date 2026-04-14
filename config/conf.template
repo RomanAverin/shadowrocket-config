@@ -22,15 +22,15 @@ RU = select,RU
 
 #Через запятую укажите подкючение из списка прокси выше.
 [Rule]
-RULE-SET,https://cdn.jsdelivr.net/gh/RomanAverin/shadowrocket-config@main/REJECT.list,REJECT
-RULE-SET,https://cdn.jsdelivr.net/gh/RomanAverin/shadowrocket-config@main/DIRECT.list,DIRECT
-RULE-SET,https://cdn.jsdelivr.net/gh/RomanAverin/shadowrocket-config@main/NORU.list,PROXY
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Apple/Apple.list,DIRECT
-RULE-SET,https://raw.githubusercontent.com/Master-Yoba/shadowrocket-rules/release/rules-geosite/geosite-category-ru.list,DIRECT
-RULE-SET,https://cdn.jsdelivr.net/gh/RomanAverin/shadowrocket-config@main/RUSSIA.list,DIRECT
-#RULE-SET,https://cdn.jsdelivr.net/gh/RomanAverin/shadowrocket-config@main/GOOGLE.list,RU
+RULE-SET,https://storage.yandexcloud.net/shadowrocket/REJECT.list,REJECT
+RULE-SET,https://storage.yandexcloud.net/shadowrocket/DIRECT.list,DIRECT
+RULE-SET,https://storage.yandexcloud.net/shadowrocket/NORU.list,PROXY
+RULE-SET,https://storage.yandexcloud.net/shadowrocket/Apple.list,DIRECT
+RULE-SET,https://storage.yandexcloud.net/shadowrocket/geosite-category-ru.list,DIRECT
+RULE-SET,https://storage.yandexcloud.net/shadowrocket/RUSSIA.list,DIRECT
+#RULE-SET,https://storage.yandexcloud.net/shadowrocket/GOOGLE.list,RU
 
-RULE-SET,https://raw.githubusercontent.com/Master-Yoba/shadowrocket-rules/release/rules-geoip/geoip-ru.list,DIRECT
+RULE-SET,https://storage.yandexcloud.net/shadowrocket/geoip-ru.list,DIRECT
 GEOIP,RU,DIRECT
 FINAL,PROXY
 
