@@ -35,10 +35,6 @@ jobs:
         run: |
           curl -fsSL "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Apple/Apple.list" \
             -o Apple.list
-          curl -fsSL "https://raw.githubusercontent.com/Master-Yoba/shadowrocket-rules/release/rules-geosite/geosite-category-ru.list" \
-            -o geosite-category-ru.list
-          curl -fsSL "https://raw.githubusercontent.com/Master-Yoba/shadowrocket-rules/release/rules-geoip/geoip-ru.list" \
-            -o geoip-ru.list
 
       - name: Upload all files to Yandex Cloud S3
         env:
@@ -47,8 +43,7 @@ jobs:
         run: |
           aws s3 cp rules_for_ru_bypass.conf ${{ env.S3_BUCKET }}/rules_for_ru_bypass.conf \
             --endpoint-url ${{ env.S3_ENDPOINT }} --region ${{ env.S3_REGION }}
-          for f in REJECT.list DIRECT.list NORU.list RUSSIA.list GOOGLE.list \
-                   Apple.list geosite-category-ru.list geoip-ru.list; do
+          for f in REJECT.list DIRECT.list NORU.list RUSSIA.list GOOGLE.list Apple.list; do
             aws s3 cp "$f" "${{ env.S3_BUCKET }}/$f" \
               --endpoint-url ${{ env.S3_ENDPOINT }} --region ${{ env.S3_REGION }}
           done

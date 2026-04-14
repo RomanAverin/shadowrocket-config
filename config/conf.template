@@ -26,11 +26,11 @@ RULE-SET,https://storage.yandexcloud.net/shadowrocket/REJECT.list,REJECT
 RULE-SET,https://storage.yandexcloud.net/shadowrocket/DIRECT.list,DIRECT
 RULE-SET,https://storage.yandexcloud.net/shadowrocket/NORU.list,PROXY
 RULE-SET,https://storage.yandexcloud.net/shadowrocket/Apple.list,DIRECT
-RULE-SET,https://storage.yandexcloud.net/shadowrocket/geosite-category-ru.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/Master-Yoba/shadowrocket-rules/release/rules-geosite/geosite-category-ru.list,DIRECT
 RULE-SET,https://storage.yandexcloud.net/shadowrocket/RUSSIA.list,DIRECT
 #RULE-SET,https://storage.yandexcloud.net/shadowrocket/GOOGLE.list,RU
 
-RULE-SET,https://storage.yandexcloud.net/shadowrocket/geoip-ru.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/Master-Yoba/shadowrocket-rules/release/rules-geoip/geoip-ru.list,DIRECT
 GEOIP,RU,DIRECT
 FINAL,PROXY
 
