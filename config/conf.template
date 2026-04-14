@@ -16,22 +16,22 @@ server=/vk.com/77.88.8.8
 server=/userapi.com/77.88.8.8
 
 [Proxy Group]
-NL = select,NL
-US = select,US
-RU = select,RU
+AutoGroup = gateway1,v1, url=http://www.gstatic.com/generate_204, interval=600
 
-#Через запятую укажите подкючение из списка прокси выше.
 [Rule]
 RULE-SET,https://storage.yandexcloud.net/shadowrocket/REJECT.list,REJECT
+# Force direct
 RULE-SET,https://storage.yandexcloud.net/shadowrocket/DIRECT.list,DIRECT
-RULE-SET,https://storage.yandexcloud.net/shadowrocket/NORU.list,PROXY
-RULE-SET,https://storage.yandexcloud.net/shadowrocket/Apple.list,DIRECT
-RULE-SET,https://raw.githubusercontent.com/Master-Yoba/shadowrocket-rules/release/rules-geosite/geosite-category-ru.list,DIRECT
-RULE-SET,https://storage.yandexcloud.net/shadowrocket/RUSSIA.list,DIRECT
-#RULE-SET,https://storage.yandexcloud.net/shadowrocket/GOOGLE.list,RU
 
-RULE-SET,https://raw.githubusercontent.com/Master-Yoba/shadowrocket-rules/release/rules-geoip/geoip-ru.list,DIRECT
+# Russia 
 GEOIP,RU,DIRECT
+RULE-SET,https://storage.yandexcloud.net/shadowrocket/RUSSIA.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/Master-Yoba/shadowrocket-rules/release/rules-geosite/geosite-category-ru.list,DIRECT
+########
+
+RULE-SET,https://storage.yandexcloud.net/shadowrocket/Apple.list,DIRECT
+#RULE-SET,https://storage.yandexcloud.net/shadowrocket/GOOGLE.list,RU
+#RULE-SET,https://raw.githubusercontent.com/Master-Yoba/shadowrocket-rules/release/rules-geoip/geoip-ru.list,DIRECT
 FINAL,PROXY
 
 [URL Rewrite]
