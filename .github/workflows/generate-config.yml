@@ -9,9 +9,6 @@ on:
       - 'config/conf.template'
       - 'scripts/generate_conf.py'
 
-permissions:
-  contents: write
-
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -21,8 +18,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -32,15 +27,12 @@ jobs:
       - name: Validate list files and generate config
         run: python scripts/generate_conf.py
 
-      - name: Check if config changed
-        id: diff
-        run: git diff --quiet rules_for_ru_bypass.conf || echo "changed=true" >> $GITHUB_OUTPUT
-
-      - name: Commit regenerated config
-        if: steps.diff.outputs.changed == 'true'
+      - name: Upload to Yandex Cloud S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.YC_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_SECRET_ACCESS_KEY }}
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add rules_for_ru_bypass.conf
-          git commit -m "chore: regenerate config"
-          git push
+          aws s3 cp rules_for_ru_bypass.conf \
+            s3://shadowrocket/rules_for_ru_bypass.conf \
+            --endpoint-url https://storage.yandexcloud.net \
+            --region ru-central1
