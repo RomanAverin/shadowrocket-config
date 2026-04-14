@@ -1,0 +1,43 @@
+name: Generate Config
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '*.list'
+      - 'config/conf.template'
+      - 'scripts/generate_conf.py'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Validate list files and generate config
+        run: python scripts/generate_conf.py
+
+      - name: Check if config changed
+        id: diff
+        run: git diff --quiet rules_for_ru_bypass.conf || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit regenerated config
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add rules_for_ru_bypass.conf
+          git commit -m "chore: regenerate config"
+          git push

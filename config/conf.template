@@ -1,7 +1,4 @@
-# NAME: rules_for_ru_bypass config for Shadowrocket
-# AUTHOR: RomanAverin
-# REPO: https://github.com/RomanAverin/shadowrocket-config
-# GENERATED: 2026-04-14T11:16:38Z
+{{GENERATED_HEADER}}
 [General]
 bypass-system = true
 skip-proxy = 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local
