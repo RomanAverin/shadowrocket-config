@@ -16,7 +16,7 @@ server=/vk.com/77.88.8.8
 server=/userapi.com/77.88.8.8
 
 [Proxy Group]
-AutoGroup = url-test,policy-regex-filter=^.*$,url=http://cp.cloudflare.com,interval=600,timeout=5,tolerance=100
+AutoGroup = url-test,policy-regex-filter=^.*$,url=http://cp.cloudflare.com,interval=180,timeout=5,tolerance=100
 
 [Rule]
 RULE-SET,https://storage.yandexcloud.net/shadowrocket/REJECT.list,REJECT
